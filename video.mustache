@@ -1,0 +1,68 @@
+<div id="wrap-{{vid}}" class="mvideo">
+  {{^supportH5Video}}
+    {{#isIE}}
+      <object id="{{vid}}" name="flash_{{vid}}" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
+              tabindex="-1" style="width:100%;height:100%">
+        <param name="movie" value="http://misact.qunarzz.com/201611/7cef694a4b08abe8ed30f09c98622f3f.jplayer.swf">
+        <param name="FlashVars" value="jQuery=jQuery&id=wrap-{{vid}}&vol=0.8&muted=false">
+        <param name="allowScriptAccess" value="always">
+        <param name="bgcolor" value="#000000">
+        <param name="wmode" value="opaque">
+      </object>
+    {{/isIE}}
+    {{^isIE}}
+      <object id="{{vid}}" name="flash_{{vid}}" 
+              data="http://misact.qunarzz.com/201611/7cef694a4b08abe8ed30f09c98622f3f.jplayer.swf" 
+              type="application/x-shockwave-flash" tabindex="-1" 
+              style="width:100%;height:100%">
+        <param name="flashvars" value="jQuery=jQuery&id=wrap-{{vid}}&vol=0.8&muted=false">
+        <param name="allowscriptaccess" value="always">
+        <param name="bgcolor" value="#000000">
+        <param name="wmode" value="opaque">
+      </object>
+    {{/isIE}}
+    <div class="help-click-video"></div>
+    <div class="no-version-flash js-no-version-flash">
+      <p>您当前的 Flash 版本过低，无法播放此格式视频，请升级 Flash 到最新版本。</p>
+      <p><a href="https://get.adobe.com/cn/flashplayer/" target="_blank">点击这里下载 Flash 最新版本</a></p>
+    </div>
+  {{/supportH5Video}}
+  {{#supportH5Video}}
+  <video id="{{vid}}" class="js-video" webkit-playsinline style="width:100%; height:100%" 
+        preload="none" {{#videoImg}} poster="{{videoImg}}" {{/videoImg}} 
+        {{#video}} src="{{video}}" {{/video}} >
+  </video>
+  {{/supportH5Video}}
+  <div class="play-btn js-play-btn">
+    <span class="circle"></span>
+    <span class="triangle"></span>
+    <span class="triangle-s"></span>
+  </div>
+  <div class="loading js-loading">
+    <img src="//img1.qunarzz.com/desmisact/images/1611/de/8eb43230e59839.gif" />
+  </div>
+  <div class="control-bar">
+    <div class="pause-btn play js-pause-btn">
+      <span class="pause">||</span>
+      <span class="play"></span>
+    </div>
+    <div class="timebar">
+      <div class="timeshow js-time-show">00:00/00:00</div>
+      <div class="timeline-wrap">
+        <div class="timeline"></div>
+        <div class="timeline loaded"></div>
+        <div class="timeflag"></div>
+      </div>
+    </div>
+    {{#needFullScreen}}
+    {{#notApplePlatform}}
+    <div class="control-btn js-control-btn">
+      <img class="fullscreen-btn" src="//img1.qunarzz.com/desmisact/images/1611/fe/461ede8c01d98f.png" />
+    </div> 
+    {{/notApplePlatform}}
+    {{/needFullScreen}}
+  </div>
+  <div class="mini-time-bar js-mini-time-bar">
+    <div class="mini-timeline js-mini-timeline"></div>
+  </div>
+</div>
